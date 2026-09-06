@@ -1,0 +1,502 @@
+<!-- ============================================================
+     EXPLORE ELLA — HOMEPAGE BLOCK (Hero + Packages + Places)
+     WordPress setup:
+     1. Pages → Add New Page, title it "Home".
+     2. In the block editor, add a "Custom HTML" block (search for it
+        in the block inserter — the (+) icon). Do NOT paste this into a
+        Paragraph block or the Classic editor's Visual tab; only the
+        Custom HTML block guarantees the <style>/<script> below survive.
+     3. Paste everything below into that Custom HTML block. Preview.
+     4. If the design looks squeezed into a narrow column, open
+        Page Attributes (right sidebar) → Template → choose
+        "Full Width" / "Blank" / "Canvas" (name depends on your theme).
+     5. Settings → Reading → set this page as your static homepage.
+     Change WA_NUMBER near the bottom to your father's WhatsApp number.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  #ella-site {
+    --forest: #1F3A2E;
+    --forest-deep: #142720;
+    --sand: #F1ECDD;
+    --clay: #A6452E;
+    --sage: #93A98A;
+    --ink: #22201B;
+    --card: #FFFFFF;
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--sand);
+  }
+  #ella-site *, #ella-site *::before, #ella-site *::after { box-sizing: border-box; }
+  #ella-site a { text-decoration: none; }
+
+  #ella-site .site-nav {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 22px 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #ella-site .site-nav .logo {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: .01em;
+    color: var(--forest-deep);
+  }
+  #ella-site .site-nav .logo em { color: var(--clay); font-style: normal; }
+  #ella-site .site-nav .nav-links { display: flex; gap: 26px; }
+  #ella-site .site-nav .nav-links a {
+    font-size: 14px; font-weight: 500; color: var(--forest-deep); opacity: .8;
+  }
+  #ella-site .site-nav .nav-links a:hover { opacity: 1; }
+  @media (max-width: 620px) { #ella-site .site-nav .nav-links { display: none; } }
+
+  #ella-site .hero {
+    position: relative;
+    margin: 20px auto 0;
+    max-width: 1180px;
+    min-height: 480px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    color: #F6F3E8;
+  }
+  #ella-site .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.10), transparent 40%),
+      linear-gradient(180deg, rgba(10,20,15,.25) 0%, rgba(8,16,12,.55) 100%),
+      linear-gradient(160deg, #0F241C 0%, #1F3A2E 38%, #3B5E45 68%, #93A98A 100%);
+  }
+  #ella-site .hero-bg::before, #ella-site .hero-bg::after {
+    content: ""; position: absolute; left: -10%; right: -10%; height: 42%;
+  }
+  #ella-site .hero-bg::before {
+    bottom: -6%;
+    background: #16301F;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    opacity: .85;
+  }
+  #ella-site .hero-bg::after {
+    bottom: -14%;
+    background: #0E2117;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+  /* Swap the gradient above for a real photo by replacing .hero-bg background with:
+     background-image:url('YOUR_PHOTO_URL'); background-size:cover; background-position:center; */
+
+  #ella-site .hero-content { position: relative; z-index: 2; max-width: 640px; }
+  #ella-site .hero-content .eyebrow {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #D9CBAE;
+    margin: 0 0 8px;
+  }
+  #ella-site .hero-content h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(40px, 7vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -.01em;
+    margin: 0 0 18px;
+  }
+  #ella-site .hero-content p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #E9E2CC;
+    margin: 0 auto 30px;
+    max-width: 46ch;
+  }
+  #ella-site .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--clay);
+    color: #FFF8EF;
+    font-weight: 600;
+    font-size: 15.5px;
+    padding: 14px 26px;
+    border-radius: 3px;
+    transition: background .2s ease, transform .2s ease;
+  }
+  #ella-site .hero-cta:hover { background: #8C3A26; transform: translateY(-1px); }
+  #ella-site .hero-cta svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  #ella-site .sect { max-width: 1180px; margin: 0 auto; padding: 64px 20px 0; }
+  #ella-site .sect-head { max-width: 720px; margin: 0 0 34px; }
+  #ella-site .sect-head .kicker {
+    font-family: 'Fraunces', Georgia, serif; font-style: italic;
+    font-size: 16px; color: var(--clay); margin: 0 0 6px;
+  }
+  #ella-site .sect-head h2 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    font-size: clamp(26px, 3.6vw, 36px); line-height: 1.15;
+    margin: 0 0 10px; color: var(--forest-deep);
+  }
+  #ella-site .sect-head p { font-size: 15.5px; line-height: 1.6; color: #4B4A42; max-width: 58ch; margin: 0; }
+
+  #ella-site .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  @media (max-width: 900px) { #ella-site .pkg-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px) { #ella-site .pkg-grid { grid-template-columns: 1fr; } }
+
+  #ella-site .pkg-card { background: var(--card); border: 1px solid #E4DFCE; display: flex; flex-direction: column; overflow: hidden; transition: border-color .2s ease; }
+  #ella-site .pkg-card:hover { border-color: var(--sage); }
+  #ella-site .pkg-photo {
+    position: relative; height: 150px; display: flex; align-items: flex-end; padding: 14px 16px;
+    background: linear-gradient(155deg, var(--forest) 0%, #2C4F3D 55%, var(--sage) 100%);
+  }
+  #ella-site .pkg-photo span { font-family: 'Fraunces', Georgia, serif; color: #F1ECDD; font-size: 13px; opacity: .9; }
+  #ella-site .pkg-body { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1; }
+  #ella-site .pkg-route { font-size: 12px; color: var(--clay); font-weight: 600; margin: 0 0 8px; line-height: 1.5; }
+  #ella-site .pkg-title { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 19px; color: var(--forest-deep); margin: 0 0 9px; line-height: 1.3; }
+  #ella-site .pkg-desc { font-size: 14px; line-height: 1.6; color: #55534A; margin: 0 0 14px; flex: 1; }
+
+  #ella-site .pkg-toggle {
+    background: none; border: none; padding: 0; font-weight: 600; font-size: 14px; color: var(--forest);
+    cursor: pointer; display: inline-flex; align-items: center; gap: 6px; width: fit-content; font-family: inherit;
+  }
+  #ella-site .pkg-toggle .arrow { transition: transform .25s ease; font-size: 14px; }
+  #ella-site .pkg-card.open .pkg-toggle .arrow { transform: rotate(90deg); }
+  #ella-site .pkg-details { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+  #ella-site .pkg-card.open .pkg-details { max-height: 320px; }
+  #ella-site .pkg-details-inner { padding-top: 14px; margin-top: 14px; border-top: 1px solid #E9E4D4; }
+  #ella-site .pkg-row { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; padding: 6px 0; border-bottom: 1px dashed #E9E4D4; }
+  #ella-site .pkg-row:last-of-type { border-bottom: none; }
+  #ella-site .pkg-row .label { color: #8A8878; }
+  #ella-site .pkg-row .value { color: var(--ink); font-weight: 500; text-align: right; }
+  #ella-site .pkg-wa {
+    margin-top: 14px; display: block; text-align: center; background: var(--forest); color: #F1ECDD;
+    font-size: 13.5px; font-weight: 600; padding: 10px 14px; transition: background .2s ease;
+  }
+  #ella-site .pkg-wa:hover { background: var(--forest-deep); }
+
+  #ella-site .place-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  @media (max-width: 980px) { #ella-site .place-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 620px) { #ella-site .place-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  #ella-site .place-card { background: var(--card); border: 1px solid #E4DFCE; }
+  #ella-site .place-photo {
+    height: 96px; background: linear-gradient(160deg, var(--sage) 0%, var(--forest) 100%);
+  }
+  #ella-site .place-body { padding: 13px 14px 16px; }
+  #ella-site .place-title { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 14.5px; color: var(--forest-deep); margin: 0 0 6px; line-height: 1.3; }
+  #ella-site .place-desc { font-size: 12.5px; line-height: 1.5; color: #5A594F; margin: 0; }
+
+  #ella-site .foot-cta {
+    max-width: 1180px; margin: 64px auto 0; padding: 40px 20px;
+    background: var(--forest-deep); color: #F1ECDD; text-align: center;
+  }
+  #ella-site .foot-cta h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 24px; margin: 0 0 10px; }
+  #ella-site .foot-cta p { font-size: 14.5px; color: #C9C4B2; margin: 0 0 22px; }
+  #ella-site .foot-cta .pkg-wa { display: inline-block; width: auto; padding: 12px 26px; }
+
+  #ella-site .site-footer {
+    max-width: 1180px; margin: 0 auto; padding: 26px 20px 50px;
+    font-size: 12.5px; color: #8A8878; text-align: center;
+  }
+
+  /* ---------- MOBILE-PRIORITY FIXES ---------- */
+  /* Foreigners mostly open this on a phone mid-trip, so: hero fits one screen
+     without feeling huge, tap targets are bigger, and WhatsApp is always reachable. */
+
+  #ella-site .wa-float {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 999;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+    transition: transform .15s ease;
+  }
+  #ella-site .wa-float:active { transform: scale(.94); }
+  #ella-site .wa-float svg { width: 28px; height: 28px; fill: #FFFFFF; }
+
+  @media (max-width: 620px) {
+    #ella-site .hero { min-height: 74vh; padding: 0 18px; }
+    #ella-site .hero-content h1 { font-size: clamp(34px, 11vw, 46px); }
+    #ella-site .hero-content p { font-size: 15.5px; }
+    #ella-site .hero-cta { width: 100%; justify-content: center; padding: 15px 20px; }
+
+    #ella-site .sect { padding: 44px 16px 0; }
+    #ella-site .sect-head { margin-bottom: 24px; }
+
+    /* bigger, easier-to-tap buttons on touchscreens */
+    #ella-site .pkg-toggle { font-size: 15px; padding: 4px 0; }
+    #ella-site .pkg-wa { padding: 13px 14px; font-size: 14.5px; }
+    #ella-site .pkg-details.open, #ella-site .pkg-card.open .pkg-details { max-height: 380px; }
+
+    #ella-site .foot-cta { padding: 34px 18px; margin-top: 44px; }
+  }
+</style>
+
+<div id="ella-site">
+
+  <div class="site-nav">
+    <div class="logo">EXPLORE <em>ELLA</em></div>
+    <div class="nav-links">
+      <a href="#ella-packages">Tours</a>
+      <a href="#ella-places">Places</a>
+      <a href="#ella-contact">Contact</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Welcome to</p>
+      <h1>Explore Ella</h1>
+      <p>Discover Ella, waterfalls, mountains, tea country and hidden places with a local driver.</p>
+      <a class="hero-cta" href="#" data-wa-text="Hi! I found your Explore Ella page and I'd like to know more about tours." target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.902 6.478L4 29l7.72-1.865A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3Zm0 21.8a9.77 9.77 0 0 1-4.98-1.36l-.357-.212-4.58 1.107 1.223-4.462-.233-.366A9.77 9.77 0 0 1 5.2 15c0-5.964 4.837-10.8 10.8-10.8S26.8 9.036 26.8 15 21.964 24.8 16 24.8Zm5.36-8.09c-.294-.147-1.737-.858-2.007-.956-.27-.098-.466-.147-.663.147-.196.294-.76.956-.932 1.152-.172.196-.343.221-.637.074-.294-.147-1.24-.457-2.362-1.458-.873-.778-1.463-1.74-1.635-2.034-.172-.294-.018-.453.129-.6.133-.132.294-.343.44-.515.147-.172.196-.294.294-.49.098-.196.049-.368-.025-.515-.074-.147-.663-1.598-.909-2.188-.24-.575-.484-.497-.663-.507l-.564-.01c-.196 0-.515.074-.784.368-.27.294-1.03 1.006-1.03 2.454 0 1.448 1.054 2.847 1.201 3.043.147.196 2.075 3.166 5.028 4.44.703.303 1.251.484 1.678.62.705.224 1.347.192 1.854.117.566-.085 1.737-.71 1.982-1.396.245-.686.245-1.274.172-1.396-.074-.123-.27-.196-.564-.343Z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div class="sect" id="ella-packages">
+    <div class="sect-head">
+      <p class="kicker">Tours from Ella</p>
+      <h2>Pick a route, we'll take care of the driving</h2>
+      <p>Six routes covering the falls, peaks, hidden spots and tea country around Ella. Tap a package to see what's included, then message us directly on WhatsApp.</p>
+    </div>
+
+    <div class="pkg-grid">
+
+      <div class="pkg-card">
+        <div class="pkg-photo"><span>Ella Classic</span></div>
+        <div class="pkg-body">
+          <p class="pkg-route">Little Adam's Peak · Nine Arch Bridge · Rawana Ella · Asapuwa</p>
+          <h3 class="pkg-title">Ella Classic</h3>
+          <p class="pkg-desc">The essential Ella loop — peak views, the railway bridge, the falls and a quiet hilltop temple, all in one route.</p>
+          <button class="pkg-toggle" onclick="ellaToggle(this)">View tour <span class="arrow">›</span></button>
+          <div class="pkg-details"><div class="pkg-details-inner">
+            <div class="pkg-row"><span class="label">Duration</span><span class="value">Half day</span></div>
+            <div class="pkg-row"><span class="label">Stops</span><span class="value">4</span></div>
+            <div class="pkg-row"><span class="label">Price</span><span class="value">On request</span></div>
+            <a class="pkg-wa" href="#" data-wa-text="Hi! I'm interested in the Ella Classic tour (Little Adam's Peak, Nine Arch Bridge, Rawana Ella, Asapuwa).">Ask on WhatsApp</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-photo"><span>Ella Shortcut</span></div>
+        <div class="pkg-body">
+          <p class="pkg-route">Little Adam's Peak · Nine Arch Bridge · Rawana Ella</p>
+          <h3 class="pkg-title">Ella Shortcut</h3>
+          <p class="pkg-desc">A faster version of the classic loop for travellers with less time — the three must-see stops only.</p>
+          <button class="pkg-toggle" onclick="ellaToggle(this)">View tour <span class="arrow">›</span></button>
+          <div class="pkg-details"><div class="pkg-details-inner">
+            <div class="pkg-row"><span class="label">Duration</span><span class="value">2–3 hrs</span></div>
+            <div class="pkg-row"><span class="label">Stops</span><span class="value">3</span></div>
+            <div class="pkg-row"><span class="label">Price</span><span class="value">On request</span></div>
+            <a class="pkg-wa" href="#" data-wa-text="Hi! I'm interested in the Ella Shortcut tour (Little Adam's Peak, Nine Arch Bridge, Rawana Ella).">Ask on WhatsApp</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-photo"><span>Hidden Ella</span></div>
+        <div class="pkg-body">
+          <p class="pkg-route">Secret Waterfall · Ella Wala · Rawana Ella · Ravana Cave</p>
+          <h3 class="pkg-title">Hidden Ella</h3>
+          <p class="pkg-desc">Off the main tourist track — a quiet waterfall, a local spot, the falls and the cave above them.</p>
+          <button class="pkg-toggle" onclick="ellaToggle(this)">View tour <span class="arrow">›</span></button>
+          <div class="pkg-details"><div class="pkg-details-inner">
+            <div class="pkg-row"><span class="label">Duration</span><span class="value">Half day</span></div>
+            <div class="pkg-row"><span class="label">Stops</span><span class="value">4</span></div>
+            <div class="pkg-row"><span class="label">Price</span><span class="value">On request</span></div>
+            <a class="pkg-wa" href="#" data-wa-text="Hi! I'm interested in the Hidden Ella tour (Secret Waterfall, Ella Wala, Rawana Ella, Ravana Cave).">Ask on WhatsApp</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-photo"><span>Diyaluma &amp; Beyond</span></div>
+        <div class="pkg-body">
+          <p class="pkg-route">Uda Diyaluma · Secret Waterfall · Rawana Ella</p>
+          <h3 class="pkg-title">Diyaluma &amp; Beyond</h3>
+          <p class="pkg-desc">Rock pools above Diyaluma Falls, a hidden waterfall stop, and Ravana Falls on the way back.</p>
+          <button class="pkg-toggle" onclick="ellaToggle(this)">View tour <span class="arrow">›</span></button>
+          <div class="pkg-details"><div class="pkg-details-inner">
+            <div class="pkg-row"><span class="label">Duration</span><span class="value">Half day (5–6 hrs)</span></div>
+            <div class="pkg-row"><span class="label">Stops</span><span class="value">3</span></div>
+            <div class="pkg-row"><span class="label">Price</span><span class="value">On request</span></div>
+            <a class="pkg-wa" href="#" data-wa-text="Hi! I'm interested in the Diyaluma & Beyond tour (Uda Diyaluma, Secret Waterfall, Rawana Ella).">Ask on WhatsApp</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-photo"><span>Tea Country Views</span></div>
+        <div class="pkg-body">
+          <p class="pkg-route">Lipton Seat · Uda Diyaluma</p>
+          <h3 class="pkg-title">Tea Country Views</h3>
+          <p class="pkg-desc">A longer route out to Lipton's Seat for the classic tea-estate panorama, combined with Upper Diyaluma's pools.</p>
+          <button class="pkg-toggle" onclick="ellaToggle(this)">View tour <span class="arrow">›</span></button>
+          <div class="pkg-details"><div class="pkg-details-inner">
+            <div class="pkg-row"><span class="label">Duration</span><span class="value">Full day</span></div>
+            <div class="pkg-row"><span class="label">Stops</span><span class="value">2</span></div>
+            <div class="pkg-row"><span class="label">Price</span><span class="value">From LKR 18,000</span></div>
+            <a class="pkg-wa" href="#" data-wa-text="Hi! I'm interested in the Tea Country Views tour (Lipton Seat, Uda Diyaluma).">Ask on WhatsApp</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-photo"><span>Full Ella &amp; Tea Country Day</span></div>
+        <div class="pkg-body">
+          <p class="pkg-route">Ella Rock · Lipton Seat · Uda Diyaluma · Rawana Ella</p>
+          <h3 class="pkg-title">Full Ella &amp; Tea Country Day</h3>
+          <p class="pkg-desc">The biggest day out — Ella Rock, Lipton's Seat, Upper Diyaluma and Ravana Falls in a single full-day trip.</p>
+          <button class="pkg-toggle" onclick="ellaToggle(this)">View tour <span class="arrow">›</span></button>
+          <div class="pkg-details"><div class="pkg-details-inner">
+            <div class="pkg-row"><span class="label">Duration</span><span class="value">Full day</span></div>
+            <div class="pkg-row"><span class="label">Stops</span><span class="value">4</span></div>
+            <div class="pkg-row"><span class="label">Price</span><span class="value">On request</span></div>
+            <a class="pkg-wa" href="#" data-wa-text="Hi! I'm interested in the Full Ella & Tea Country Day tour (Ella Rock, Lipton Seat, Uda Diyaluma, Rawana Ella).">Ask on WhatsApp</a>
+          </div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="sect" id="ella-places">
+    <div class="sect-head">
+      <p class="kicker">What you'll see</p>
+      <h2>Places we visit</h2>
+      <p>A closer look at each stop across the tours above.</p>
+    </div>
+    <div class="place-grid">
+
+      <div class="place-card">
+        <div class="place-photo"></div>
+        <div class="place-body">
+          <p class="place-title">Little Adam's Peak</p>
+          <p class="place-desc">Easy 45-min climb with sweeping views over tea estates.</p>
+        </div>
+      </div>
+
+      <div class="place-card">
+        <div class="place-photo"></div>
+        <div class="place-body">
+          <p class="place-title">Nine Arch Bridge</p>
+          <p class="place-desc">Colonial-era railway bridge in the jungle, best seen around train times.</p>
+        </div>
+      </div>
+
+      <div class="place-card">
+        <div class="place-photo"></div>
+        <div class="place-body">
+          <p class="place-title">Rawana Ella (Falls)</p>
+          <p class="place-desc">A wide roadside waterfall, one of the most photographed on the island.</p>
+        </div>
+      </div>
+
+      <div class="place-card">
+        <div class="place-photo"></div>
+        <div class="place-body">
+          <p class="place-title">Asapuwa</p>
+          <p class="place-desc">A small hilltop temple with quiet views over the Ella valley.</p>
+        </div>
+      </div>
+
+      <div class="place-card">
+        <div class="place-photo"></div>
+        <div class="place-body">
+          <p class="place-title">Secret Waterfall</p>
+          <p class="place-desc">A lesser-known waterfall off the main road, away from the crowds.</p>
+        </div>
+      </div>
+
+      <div class="place-card">
+        <div class="place-photo"></div>
+        <div class="place-body">
+          <p class="place-title">Ella Wala</p>
+          <p class="place-desc">A local spot along the route, good for a short stop and photos.</p>
+        </div>
+      </div>
+
+      <div class="place-card">
+        <div class="place-photo"></div>
+        <div class="place-body">
+          <p class="place-title">Ravana Cave</p>
+          <p class="place-desc">A hillside cave tied to the Ramayana legend, reached by a short climb.</p>
+        </div>
+      </div>
+
+      <div class="place-card">
+        <div class="place-photo"></div>
+        <div class="place-body">
+          <p class="place-title">Uda Diyaluma</p>
+          <p class="place-desc">Natural rock pools above Diyaluma Falls, with wide valley views.</p>
+        </div>
+      </div>
+
+      <div class="place-card">
+        <div class="place-photo"></div>
+        <div class="place-body">
+          <p class="place-title">Lipton Seat</p>
+          <p class="place-desc">Sir Thomas Lipton's viewpoint, with panoramic views over the tea estates.</p>
+        </div>
+      </div>
+
+      <div class="place-card">
+        <div class="place-photo"></div>
+        <div class="place-body">
+          <p class="place-title">Ella Rock</p>
+          <p class="place-desc">A longer hike to one of the best viewpoints over the Ella gap.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="foot-cta" id="ella-contact">
+    <h3>Planning your trip to Ella?</h3>
+    <p>Message us on WhatsApp and we'll help you pick the right tour.</p>
+    <a class="pkg-wa" href="#" data-wa-text="Hi! I'm planning a trip to Ella and would like some help choosing a tour.">Chat on WhatsApp</a>
+  </div>
+
+  <div class="site-footer">Explore Ella — local transport &amp; tours around Ella, Sri Lanka.</div>
+
+  <!-- Floating WhatsApp button — stays on screen no matter how far the person has scrolled -->
+  <a class="wa-float" href="#" data-wa-text="Hi! I'm looking at your Explore Ella page and would like to ask about a tour." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.902 6.478L4 29l7.72-1.865A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3Zm0 21.8a9.77 9.77 0 0 1-4.98-1.36l-.357-.212-4.58 1.107 1.223-4.462-.233-.366A9.77 9.77 0 0 1 5.2 15c0-5.964 4.837-10.8 10.8-10.8S26.8 9.036 26.8 15 21.964 24.8 16 24.8Zm5.36-8.09c-.294-.147-1.737-.858-2.007-.956-.27-.098-.466-.147-.663.147-.196.294-.76.956-.932 1.152-.172.196-.343.221-.637.074-.294-.147-1.24-.457-2.362-1.458-.873-.778-1.463-1.74-1.635-2.034-.172-.294-.018-.453.129-.6.133-.132.294-.343.44-.515.147-.172.196-.294.294-.49.098-.196.049-.368-.025-.515-.074-.147-.663-1.598-.909-2.188-.24-.575-.484-.497-.663-.507l-.564-.01c-.196 0-.515.074-.784.368-.27.294-1.03 1.006-1.03 2.454 0 1.448 1.054 2.847 1.201 3.043.147.196 2.075 3.166 5.028 4.44.703.303 1.251.484 1.678.62.705.224 1.347.192 1.854.117.566-.085 1.737-.71 1.982-1.396.245-.686.245-1.274.172-1.396-.074-.123-.27-.196-.564-.343Z"/></svg>
+  </a>
+
+</div>
+
+<script>
+  // ⬇️ CHANGE THIS to your father's WhatsApp number, country code first, no + or leading 0
+  var WA_NUMBER = "94771234567";
+
+  function ellaToggle(btn){
+    var card = btn.closest('.pkg-card');
+    card.classList.toggle('open');
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('#ella-site .pkg-wa, #ella-site .hero-cta, #ella-site .wa-float').forEach(function(a){
+      var text = a.getAttribute('data-wa-text');
+      a.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text);
+      a.target = '_blank';
+      a.rel = 'noopener';
+    });
+  });
+</script>
