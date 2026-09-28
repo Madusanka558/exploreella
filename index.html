@@ -104,14 +104,13 @@ svg{display:block}
 .place-card{position:relative;display:block;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;transition:transform .2s,border-color .2s;overflow:hidden}
 .place-card:hover{transform:translateY(-3px);border-color:var(--brass)}
 .place-photo{
-    height:96px;
     margin:-18px -18px 24px;
     overflow:hidden;
 }
 .place-photo img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 .place-photo svg{width:100%;height:100%}
