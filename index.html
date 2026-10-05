@@ -89,12 +89,63 @@ svg{display:block}
 .section-head p{margin:0;color:var(--muted);font-size:15.5px;line-height:1.7}
 
 
-.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.svc{background:var(--cream);border-radius:10px;overflow:hidden;border:1px solid #00000010}
-.svc .scene{width:100%;height:108px;display:block}
-.svc .body{padding:16px}
-.svc h3{font-size:15.5px;margin-bottom:6px}
-.svc p{font-size:13.5px;color:#4C5A47;margin:0}
+/* extra services */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.svc{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:26px;
+  transition:transform .2s, box-shadow .2s, border-color .2s;
+}
+
+.svc:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+  border-color:rgba(184,134,58,.45);
+}
+
+.svc-icon{
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:rgba(184,134,58,.12);
+  font-size:26px;
+  margin-bottom:20px;
+}
+
+.svc h3{
+  font-family:"Newsreader",serif;
+  font-size:21px;
+  font-weight:600;
+  margin:0 0 10px;
+}
+
+.svc p{
+  font-size:13.5px;
+  line-height:1.7;
+  color:var(--muted);
+  margin:0 0 18px;
+}
+
+.service-link{
+  display:inline-block;
+  color:var(--brass);
+  font-size:13px;
+  font-weight:700;
+  transition:transform .2s;
+}
+
+.service-link:hover{
+  transform:translateX(3px);
+}
 
   
 /* tours */
@@ -163,6 +214,9 @@ svg{display:block}
   .stats{grid-template-columns:1fr}
   .stat{border-right:0;border-bottom:1px solid var(--line)}
   .stat:last-child{border-bottom:0}
+  .services-grid{
+  grid-template-columns:repeat(2,1fr);
+}
 }
 @media(max-width:640px){
   .navlinks a:not(.nav-wa){display:none}
@@ -172,6 +226,9 @@ svg{display:block}
   .place-grid{grid-template-columns:repeat(2,1fr)}
   .cta{padding:48px 24px;border-radius:22px}
   .section{padding-top:72px}
+  .services-grid{
+  grid-template-columns:1fr;
+}
 }
 </style>
 </head>
@@ -320,63 +377,81 @@ svg{display:block}
     </div>
   </section>
 
-  <section id="services">
-  <div class="section-head">
-    <h2>More than day tours</h2>
-    <p>Need something outside a tour package? We can arrange it.</p>
-  </div>
-  <div class="services-grid">
+<section class="section" id="services">
+  <div class="wrap">
 
-    <div class="svc">
-      <svg class="scene" viewBox="0 0 300 108" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
-        <defs><linearGradient id="sk1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F3C97E"/><stop offset="100%" stop-color="#E8A94B"/></linearGradient></defs>
-        <rect width="300" height="108" fill="url(#sk1)"/><circle cx="246" cy="26" r="16" fill="#FBF3DE" opacity=".8"/>
-        <path d="M0,70 C60,50 120,66 180,52 C220,44 260,58 300,50 L300,108 0,108 Z" fill="#6E8A5A"/>
-        <path d="M0,86 C70,76 160,90 300,78 L300,108 0,108 Z" fill="#3E5638"/>
-        <rect x="0" y="92" width="300" height="16" fill="#2B2420"/>
-        <g transform="translate(118,62)"><rect x="0" y="16" width="56" height="22" rx="7" fill="#1B2B23"/><rect x="8" y="2" width="34" height="18" rx="6" fill="#1B2B23"/><circle cx="12" cy="40" r="7" fill="#111"/><circle cx="46" cy="40" r="7" fill="#111"/></g>
-      </svg>
-      <div class="body"><h3>Tuk tuk day tours</h3><p>Our main service — open-air rides through Ella's hills, best for 1–3 people.</p></div>
+    <div class="section-head">
+      <p class="eyebrow">More ways to travel</p>
+      <h2>Transport & Extra Services</h2>
+      <p>
+        Need more than a day tour? We can help arrange private transport
+        around Ella and to destinations across Sri Lanka.
+      </p>
     </div>
 
-    <div class="svc">
-      <svg class="scene" viewBox="0 0 300 108" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
-        <defs><linearGradient id="sk2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7FB3B0"/><stop offset="100%" stop-color="#3E8683"/></linearGradient></defs>
-        <rect width="300" height="108" fill="url(#sk2)"/>
-        <path d="M0,74 C70,58 150,70 220,56 C250,50 280,60 300,54 L300,108 0,108 Z" fill="#2B6E6E"/>
-        <path d="M0,88 C90,80 190,92 300,80 L300,108 0,108 Z" fill="#1D4A4A"/>
-        <rect x="0" y="92" width="300" height="16" fill="#17282B"/>
-        <g transform="translate(70,64)"><rect x="0" y="14" width="64" height="22" rx="7" fill="#1B2B23"/><path d="M12,14 L20,-2 H48 L56,14 Z" fill="#1B2B23"/><circle cx="14" cy="38" r="7" fill="#111"/><circle cx="50" cy="38" r="7" fill="#111"/></g>
-        <g transform="translate(168,66)"><rect x="0" y="12" width="58" height="24" rx="7" fill="#1B2B23"/><rect x="8" y="-2" width="36" height="16" rx="5" fill="#1B2B23"/><circle cx="12" cy="38" r="7" fill="#111"/><circle cx="46" cy="38" r="7" fill="#111"/></g>
-      </svg>
-      <div class="body"><h3>Car &amp; van hire</h3><p>For bigger groups or families, we can arrange a car or van instead of a tuk tuk.</p></div>
-    </div>
+    <div class="services-grid">
 
-    <div class="svc">
-      <svg class="scene" viewBox="0 0 300 108" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
-        <defs><linearGradient id="sk3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#BFD9E8"/><stop offset="100%" stop-color="#8FB7D1"/></linearGradient></defs>
-        <rect width="300" height="108" fill="url(#sk3)"/>
-        <ellipse cx="60" cy="30" rx="26" ry="9" fill="#fff" opacity=".8"/>
-        <ellipse cx="210" cy="20" rx="20" ry="7" fill="#fff" opacity=".7"/>
-        <path d="M0,86 C80,74 200,88 300,76 L300,108 0,108 Z" fill="#5A7A96"/>
-        <rect x="0" y="94" width="300" height="14" fill="#2C3C47"/>
-        <path d="M30,70 L170,56 L190,62 L150,68 L220,78 L188,80 L140,76 L70,86 Z" fill="#1B2B23"/>
-      </svg>
-      <div class="body"><h3>Airport pickups &amp; drop-offs</h3><p>Transfers to and from the airport or your next stop, arranged in advance.</p></div>
-    </div>
+      <div class="svc">
+        <div class="svc-icon">🛺</div>
+        <div class="body">
+          <h3>Private Tuk-Tuk Hire</h3>
+          <p>
+            Flexible tuk-tuk rides around Ella for sightseeing,
+            restaurants, hotels and short local journeys.
+          </p>
+          <a class="service-link wa-link" href="#"
+             data-wa-text="Hi! I'd like to know about private tuk-tuk hire around Ella.">
+            Ask about tuk-tuk hire →
+          </a>
+        </div>
+      </div>
 
-    <div class="svc">
-      <svg class="scene" viewBox="0 0 300 108" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
-        <defs><linearGradient id="sk4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C98A2B"/><stop offset="100%" stop-color="#8C5A1E"/></linearGradient></defs>
-        <rect width="300" height="108" fill="url(#sk4)"/>
-        <path d="M0,72 C70,56 150,70 220,54 C250,48 280,58 300,52 L300,108 0,108 Z" fill="#5C7A52"/>
-        <path d="M0,88 L120,80 L160,94 L300,80 L300,108 0,108 Z" fill="#3E5638"/>
-        <path d="M0,96 C90,86 210,100 300,88" stroke="#F2EFE3" stroke-width="3" stroke-dasharray="8 7" fill="none" opacity=".7"/>
-        <g transform="translate(236,30)"><path d="M0,0 C0,16 -16,26 -16,40 C-16,50 -8,56 0,56 C8,56 16,50 16,40 C16,26 0,16 0,0 Z" fill="#1B2B23"/><circle cx="0" cy="22" r="8" fill="#F2EFE3"/></g>
-      </svg>
-      <div class="body"><h3>Private hire</h3><p>Flexible point-to-point rides around Ella — not just full-day tours.</p></div>
-    </div>
+      <div class="svc">
+        <div class="svc-icon">🚗</div>
+        <div class="body">
+          <h3>Car & Van Hire</h3>
+          <p>
+            Comfortable private cars and vans for couples, families
+            and groups travelling around Ella or further away.
+          </p>
+          <a class="service-link wa-link" href="#"
+             data-wa-text="Hi! I'd like to know about car or van hire from Ella.">
+            Ask about vehicles →
+          </a>
+        </div>
+      </div>
 
+      <div class="svc">
+        <div class="svc-icon">✈️</div>
+        <div class="body">
+          <h3>Airport Transfers</h3>
+          <p>
+            Private pickups and drop-offs between Ella and Sri Lanka's
+            airports, arranged around your flight time.
+          </p>
+          <a class="service-link wa-link" href="#"
+             data-wa-text="Hi! I'd like to arrange an airport transfer to/from Ella.">
+            Ask about transfers →
+          </a>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-icon">📍</div>
+        <div class="body">
+          <h3>City-to-City Transfers</h3>
+          <p>
+            Travelling after Ella? Arrange private transport to your
+            next destination anywhere in Sri Lanka.
+          </p>
+          <a class="service-link wa-link" href="#"
+             data-wa-text="Hi! I'd like to arrange a private transfer from Ella to another destination.">
+            Plan my transfer →
+          </a>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
