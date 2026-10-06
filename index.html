@@ -292,7 +292,11 @@ svg{display:block}
 ================================ */
 @media(max-width:640px){
   html,body{width:100%;max-width:100%;overflow-x:hidden}
-  .wrap{width:calc(100% - 28px)}
+  .wrap{width:calc(100% - 28px)
+  .place-grid{
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}}
 
   /* Navigation */
   .nav{height:64px;gap:8px}
