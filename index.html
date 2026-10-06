@@ -58,12 +58,21 @@ svg{display:block}
 }
 
 .logo-text{
+  display:flex;
+  align-items:baseline;
+  gap:6px;
   white-space:nowrap;
 }
 
-.logo-text strong{
-  color:var(--brass);
+.logo-main{
+  color:#ffffff;
   font-weight:600;
+}
+
+.logo-accent{
+  color:var(--brass);   /* your yellow/gold color */
+  font-style:italic;
+  font-weight:500;
 }
 .logo span{color:var(--brass)}
 .navlinks{display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:600}
@@ -318,7 +327,10 @@ svg{display:block}
   <div class="wrap nav">
     <a class="logo" href="#">
   <img src="images/explore-ella-logo.png" alt="Explore Ella Logo">
-  <span class="logo-text">Explore Ella<strong>Tuk Tuk</strong></span>
+  <span class="logo-text">
+    <span class="logo-main">Explore Ella</span>
+    <span class="logo-accent">Tuk Tuk</span>
+  </span>
 </a>
     <nav class="navlinks">
       <a href="#tours">Tours</a>
