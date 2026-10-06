@@ -292,11 +292,7 @@ svg{display:block}
 ================================ */
 @media(max-width:640px){
   html,body{width:100%;max-width:100%;overflow-x:hidden}
-  .wrap{width:calc(100% - 28px)
-  .place-grid{
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}}
+  .wrap{width:calc(100% - 28px)}
 
   /* Navigation */
   .nav{height:64px;gap:8px}
@@ -346,11 +342,14 @@ svg{display:block}
   .svc .body{padding:18px}
   .service-wa{width:100%}
 
-  /* Places */
-  .place-grid{grid-template-columns:1fr;gap:16px}
-  .place-card{padding:14px}
-  .place-photo{width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:10px}
+  /* Places - keep 2 cards per row on mobile */
+  .place-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .place-card{min-width:0;padding:10px}
+  .place-photo{width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:10px}
   .place-photo img{width:100%;height:100%;object-fit:cover}
+  .place-title{font-size:14px;line-height:1.25;margin-bottom:5px}
+  .place-desc{font-size:11.5px;line-height:1.4;margin-bottom:9px}
+  .place-ext{font-size:10px}
 
   /* CTA */
   .cta{margin-top:64px;padding:42px 20px;border-radius:20px}
@@ -373,6 +372,11 @@ svg{display:block}
   .hero h1{font-size:36px}
   .section-head h2{font-size:28px}
   .tour-meta{grid-template-columns:1fr 1fr}
+  .place-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .place-card{padding:8px}
+  .place-title{font-size:13px}
+  .place-desc{font-size:10.8px}
+  .place-ext{font-size:9.5px}
 }
 </style>
 </head>
@@ -629,7 +633,7 @@ svg{display:block}
         <h3>Plan Your Perfect Day in Ella</h3>
         <p><em>Need a car, van or SUV? We can arrange that too.</em></p>
         
-        <a class="btn btn-primary wa-link" href="#" data-wa-text="Hi! I'm planning a trip to Ella and would like some help choosing a tour."><svg class="icon"><use href="#i-wa"/></svg>Plan My Day on Whatsapp</a>
+        <a class="btn btn-primary wa-link" href="#" data-wa-text="Hi! I'm planning a trip to Ella and would like some help choosing a tour."><svg class="icon"><use href="#i-wa"/></svg>Plan My Day</a>
         <p>Message us on WhatsApp and we'll help you pick the right tour.</p>
         
       </div>
