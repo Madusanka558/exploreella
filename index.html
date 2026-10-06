@@ -145,6 +145,35 @@ svg{display:block}
   color:var(--muted);
   margin:0;
 }
+
+.service-wa{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+
+  margin-top:18px;
+  padding:11px 14px;
+
+  border-radius:10px;
+  background:var(--pine);
+  color:#fff;
+
+  font-size:13px;
+  font-weight:700;
+
+  transition:background .2s, transform .2s;
+}
+
+.service-wa:hover{
+  background:var(--pine-2);
+  transform:translateY(-2px);
+}
+
+.service-wa .icon{
+  width:15px;
+  height:15px;
+}
   
 /* tours */
 .tour-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -394,6 +423,13 @@ svg{display:block}
         <div class="body">
           <h3>Tuk tuk day tours</h3>
           <p>Our main service — open-air rides through Ella's hills, best for 1–3 people.</p>
+
+          <a class="service-wa wa-link"
+             href="#"
+             data-wa-text="Hi! I'm interested in a Tuk Tuk Day Tour around Ella. Can you please send me the available options and price?">
+            <svg class="icon"><use href="#i-wa"/></svg>
+            Ask on WhatsApp
+          </a>
         </div>
       </div>
 
@@ -404,6 +440,13 @@ svg{display:block}
         <div class="body">
           <h3>Car &amp; van hire</h3>
           <p>For bigger groups or families, we can arrange a car or van instead of a tuk tuk.</p>
+
+          <a class="service-wa wa-link"
+             href="#"
+             data-wa-text="Hi! I'm interested in Car or Van Hire in Ella. Can you please send me the available vehicle options and prices?">
+            <svg class="icon"><use href="#i-wa"/></svg>
+            Ask on WhatsApp
+          </a>
         </div>
       </div>
 
@@ -414,6 +457,13 @@ svg{display:block}
         <div class="body">
           <h3>Airport pickups &amp; drop-offs</h3>
           <p>Transfers to and from the airport or your next stop, arranged in advance.</p>
+
+          <a class="service-wa wa-link"
+             href="#"
+             data-wa-text="Hi! I'd like to arrange an Airport Pickup or Drop-off to/from Ella. Can you please send me the price and details?">
+            <svg class="icon"><use href="#i-wa"/></svg>
+            Ask on WhatsApp
+          </a>
         </div>
       </div>
 
@@ -424,6 +474,13 @@ svg{display:block}
         <div class="body">
           <h3>Private hire</h3>
           <p>Flexible point-to-point rides around Ella — not just full-day tours.</p>
+
+          <a class="service-wa wa-link"
+             href="#"
+             data-wa-text="Hi! I'm interested in Private Hire from Ella. I would like transport to another destination. Can you please send me the details and price?">
+            <svg class="icon"><use href="#i-wa"/></svg>
+            Ask on WhatsApp
+          </a>
         </div>
       </div>
 
