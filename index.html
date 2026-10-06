@@ -20,15 +20,12 @@
   color-scheme: light;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --mist:#101B14; --paper:#16231A; --ink:#EAEFE7; --muted:#9BA79C;
-    --line:rgba(234,239,231,.14); color-scheme: dark;
-  }
+html{
+  color-scheme:light;
 }
-:root[data-theme="dark"]{
-  --mist:#101B14; --paper:#16231A; --ink:#EAEFE7; --muted:#9BA79C;
-  --line:rgba(234,239,231,.14); color-scheme: dark;
+
+body{
+  background:#EAEFE7;
 }
 html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
 *{box-sizing:border-box}
