@@ -74,7 +74,6 @@ svg{display:block}
   font-style:italic;
   font-weight:500;
 }
-.logo span{color:var(--brass)}
 .navlinks{display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:600}
 .navlinks a:not(.nav-wa){opacity:.7;transition:opacity .2s}
 .navlinks a:not(.nav-wa):hover{opacity:1}
@@ -136,6 +135,8 @@ svg{display:block}
   border-radius:18px;
   overflow:hidden;
   transition:transform .2s, box-shadow .2s;
+  display:flex;
+  flex-direction:column;
 }
 
 .svc:hover{
@@ -163,6 +164,9 @@ svg{display:block}
 
 .svc .body{
   padding:20px 20px 22px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
 }
 
 .svc h3{
@@ -177,6 +181,7 @@ svg{display:block}
   line-height:1.65;
   color:var(--muted);
   margin:0;
+  flex-grow:1;
 }
 
 .service-wa{
@@ -210,7 +215,7 @@ svg{display:block}
   
 /* tours */
 .tour-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.tour-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .2s,box-shadow .2s;overflow:hidden}
+.tour-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .2s,box-shadow .2s;overflow:hidden;display:flex;flex-direction:column}
 .tour-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
 .tour-photo img {
     width: 100%;
@@ -221,9 +226,9 @@ svg{display:block}
 .tour-photo svg{width:100%;height:100%}
 .tour-badge{font-size:12px;font-weight:700;color:var(--brass);margin:0 0 6px}
 .tour-title{font-family:"Newsreader",serif;font-weight:600;font-size:21px;margin:0 0 10px}
-.tour-route{font-size:12.5px;color:var(--white);line-height:1.9;margin:0 0 14px}
+.tour-route{font-size:12.5px;color:var(--ink);line-height:1.9;margin:0 0 14px}
 .tour-route b{color:var(--brass);font-weight:700;padding:0 2px}
-.tour-desc{font-size:14px;line-height:1.65;color:var(--muted);margin:0 0 18px}
+.tour-desc{font-size:14px;line-height:1.65;color:var(--muted);margin:0 0 18px;flex-grow:1}
 .tour-meta{display:flex;gap:18px;padding-top:16px;border-top:1px solid var(--line);margin-bottom:16px}
 .tour-meta div{font-size:12px}
 .tour-meta span{display:block;color:var(--muted);margin-bottom:2px}
@@ -255,6 +260,7 @@ svg{display:block}
 .cta-inner{position:relative;z-index:2}
 .cta h3{font-family:"Newsreader",serif;font-weight:600;font-size:clamp(28px,4vw,40px);margin:0 0 12px}
 .cta p{color:rgba(255,255,255,.7);font-size:15px;margin:0 0 26px}
+.cta .btn{margin-bottom:18px}
 
 .footer{padding:40px 0 60px;text-align:center;color:var(--muted);font-size:12.5px}
 
@@ -263,34 +269,106 @@ svg{display:block}
 .wa-float .icon{width:26px;height:26px;stroke:none;fill:#fff}
 
 @media (min-width:981px){
-    .tour-card:nth-child(7):last-child{
-        grid-column:2;
-    }
+  .tour-card:nth-child(7):last-child{
+    grid-column:2;
+  }
 }
-  
+
+/* ===============================
+   TABLET
+================================ */
 @media(max-width:980px){
+  .wrap{width:calc(100% - 32px)}
   .tour-grid{grid-template-columns:repeat(2,1fr)}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
   .place-grid{grid-template-columns:repeat(3,1fr)}
   .stats{grid-template-columns:1fr}
   .stat{border-right:0;border-bottom:1px solid var(--line)}
   .stat:last-child{border-bottom:0}
-  .services-grid{
-  grid-template-columns:repeat(2,1fr);
 }
-}
-}
+
+/* ===============================
+   MOBILE
+================================ */
 @media(max-width:640px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden}
+  .wrap{width:calc(100% - 28px)}
+
+  /* Navigation */
+  .nav{height:64px;gap:8px}
+  .logo{gap:7px;font-size:16px;min-width:0}
+  .logo img{width:38px;height:38px;flex-shrink:0}
+  .logo-text{gap:4px;white-space:nowrap}
+  .logo .logo-main{color:#fff;font-size:16px}
+  .logo .logo-accent{color:var(--brass);font-size:14px}
+  .navlinks{margin-left:auto}
   .navlinks a:not(.nav-wa){display:none}
-  .hero-inner{padding:80px 0 64px}
-  .hero-actions{display:grid}
-  .tour-grid{grid-template-columns:1fr}
-  .place-grid{grid-template-columns:repeat(2,1fr)}
-  .cta{padding:48px 24px;border-radius:22px}
-  .section{padding-top:72px}
-  .services-grid{
-  grid-template-columns:1fr;
+  .nav-wa{width:40px;height:40px;padding:0;justify-content:center;font-size:0}
+  .nav-wa .icon{width:20px;height:20px}
+
+  /* Hero */
+  .hero{border-radius:0 0 22px 22px}
+  .hero-inner{padding:70px 0 56px}
+  .hero h1{font-size:42px;line-height:1.05;max-width:100%}
+  .hero p{font-size:15px;line-height:1.65}
+  .hero-actions{display:grid;grid-template-columns:1fr}
+  .hero-actions .btn{width:100%;justify-content:center}
+
+  /* Stats */
+  .stats{margin-top:-24px;border-radius:16px}
+  .stat{padding:18px 20px}
+
+  /* General sections */
+  .section{padding-top:64px}
+  .section-head{margin-bottom:28px}
+  .section-head h2{font-size:31px;line-height:1.1}
+  .section-head p{font-size:14px}
+
+  /* Tour cards */
+  .tour-grid{grid-template-columns:1fr;gap:18px}
+  .tour-card{padding:18px}
+  .tour-photo{width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:12px}
+  .tour-photo img{width:100%;height:100%;object-fit:cover}
+  .tour-title{font-size:21px}
+  .tour-route{font-size:12px;line-height:1.7}
+  .tour-desc{font-size:13.5px}
+  .tour-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .tour-wa{width:100%}
+
+  /* More than day tours */
+  .services-grid{grid-template-columns:1fr;gap:18px}
+  .svc{width:100%}
+  .svc-photo{aspect-ratio:16/10}
+  .svc .body{padding:18px}
+  .service-wa{width:100%}
+
+  /* Places */
+  .place-grid{grid-template-columns:1fr;gap:16px}
+  .place-card{padding:14px}
+  .place-photo{width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:10px}
+  .place-photo img{width:100%;height:100%;object-fit:cover}
+
+  /* CTA */
+  .cta{margin-top:64px;padding:42px 20px;border-radius:20px}
+  .cta h3{font-size:29px}
+  .cta .btn{width:100%;justify-content:center}
+
+  /* Footer */
+  .footer{padding:32px 0 80px}
+  .wa-float{width:52px;height:52px;right:14px;bottom:14px}
 }
-}
+
+/* ===============================
+   VERY SMALL PHONES
+================================ */
+@media(max-width:390px){
+  .wrap{width:calc(100% - 22px)}
+  .logo img{width:34px;height:34px}
+  .logo .logo-main{font-size:14px}
+  .logo .logo-accent{font-size:12px}
+  .hero h1{font-size:36px}
+  .section-head h2{font-size:28px}
+  .tour-meta{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -379,7 +457,6 @@ svg{display:block}
 
         <article class="tour-card">
           <div class="tour-photo"><img src="images/Ella Highlights.webp" alt="Ella Classic"></div>
-          <br>
           <h3 class="tour-title">Ella Highlights</h3>
           <p class="tour-route">Little Adam's Peak <b>→</b> Nine Arch Bridge <b>→</b> Rawana Ella <b>→</b> Mahamevnawa Buddhist Monastery</p>
           <p class="tour-desc">The essential Ella loop — peak views, the railway bridge, the falls and a quiet hilltop temple.</p>
@@ -389,10 +466,8 @@ svg{display:block}
 
         <article class="tour-card">
           <div class="tour-photo"><img src="images/Classic Ella.webp" alt="Ella Shortcut"></div>
-          <br>
           <h3 class="tour-title">Classic Ella</h3>
           <p class="tour-route">Little Adam's Peak <b>→</b> Nine Arch Bridge <b>→</b> Rawana Falls</p>
-          <br>
           <p class="tour-desc">A faster version of the classic loop for travellers with less time — the three must-see stops only.</p>
           <div class="tour-meta"><div><span>Duration</span><b>2–3 hrs</b></div><div><span>Stops</span><b>3</b></div><div><span>Price</span><b>On request</b></div></div>
           <a class="tour-wa wa-link" href="#" data-wa-text="Hi! I'm interested in the Classic Ella tour (Little Adam's Peak, Nine Arch Bridge, Rawana Falls)."><svg class="icon"><use href="#i-wa"/></svg>Ask on WhatsApp</a>
@@ -400,7 +475,6 @@ svg{display:block}
 
         <article class="tour-card">
           <div class="tour-photo"><img src="images/Hidden Ella Secret waterfall.webp" alt="Hidden Ella"></div>
-          <br>
           <h3 class="tour-title">Hidden Ella</h3>
           <p class="tour-route">Secret Waterfall <b>→</b> Ella Wala <b>→</b> Rawana Falls <b>→</b> Ravana Cave</p>
           <p class="tour-desc">Off the main tourist track — a quiet waterfall, a local spot, the falls and the cave above them.</p>
@@ -410,19 +484,15 @@ svg{display:block}
 
         <article class="tour-card">
           <div class="tour-photo"><img src="images/Diyaluma Escape.webp" alt="Diyaluma & Beyond"></div>
-          <br>
           <h3 class="tour-title">Diyaluma Escape</h3>
           <p class="tour-route">Upper Diyaluma <b>→</b> Secret Waterfall <b>→</b> Rawana Falls</p>
-          <br>
           <p class="tour-desc">Rock pools above Diyaluma Falls, a hidden waterfall stop, and Ravana Falls on the way back.</p>
-          <br>
           <div class="tour-meta"><div><span>Duration</span><b>5–6 hrs</b></div><div><span>Stops</span><b>3</b></div><div><span>Price</span><b>On request</b></div></div>
           <a class="tour-wa wa-link" href="#" data-wa-text="Hi! I'm interested in the Diyaluma Escape tour (Upper Diyaluma, Secret Waterfall, Rawana Falls)."><svg class="icon"><use href="#i-wa"/></svg>Ask on WhatsApp</a>
         </article>
 
         <article class="tour-card">
           <div class="tour-photo"><img src="images/Tea Country & Ella Highlights.webp" alt="Tea Country Views"></div>
-          <br>
           <h3 class="tour-title">Tea Country & Ella Highlights</h3>
           <p class="tour-route">Organic Tea Queen <b>→</b> Little Adam’s Peak <b>→</b> Nine Arch Bridge <b>→</b> Mahamevnawa Buddhist monastery</p>
           <p class="tour-desc">The biggest day out — Organic Tea Queen, Little Adam’s Peak, Nine Arch Bridge and Mahamevnawa Buddhist monastery in one full-day trip.</p>
@@ -432,7 +502,6 @@ svg{display:block}
         
         <article class="tour-card">
           <div class="tour-photo"><img src="images/Ella Adventure.webp" alt="Full Ella & Tea Country Day"></div>
-          <br>
           <h3 class="tour-title">Ella Adventure</h3>
           <p class="tour-route">Ravana Falls <b>→</b> Secret Waterfall <b>→</b> Blue Water Pond <b>→</b> Ella Rock</p>
           <p class="tour-desc">The biggest day out — Ravana Falls, Secret Waterfall, Nildiya Pokuna and Ella Rock in one full-day trip.</p>
@@ -513,7 +582,6 @@ svg{display:block}
         <div class="body">
           <h3>Private hire</h3>
           <p>Flexible point-to-point rides around Ella — not just full-day tours.</p>
-          <br>
 
           <a class="service-wa wa-link"
              href="#"
@@ -542,8 +610,8 @@ svg{display:block}
         <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=Asapuwa+Ella+Sri+Lanka" target="_blank" rel="noopener"><div class="place-photo"><img src="images/Mahamewna.webp" alt="Asapuwa"></div><br><p class="place-title">Mahamevnawa Buddhist Monastery</p><p class="place-desc">A small hilltop temple with quiet views over the Ella valley.</p><span class="place-ext"><svg class="icon"><use href="#i-ext"/></svg>Open in Maps</span></a>
         <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=Secret+Waterfall+Ella+Sri+Lanka" target="_blank" rel="noopener"><div class="place-photo"><img src="images/Secret waterfall.webp" alt="Secret Waterfall"></div><br><p class="place-title">Secret Waterfall</p><p class="place-desc">A lesser-known waterfall off the main road, away from the crowds.</p><span class="place-ext"><svg class="icon"><use href="#i-ext"/></svg>Open in Maps</span></a>
         <a class="place-card" href="https://maps.app.goo.gl/nszg581MCxzUW6mR6" target="_blank" rel="noopener"><div class="place-photo"><img src="images/Bule Pond Karadagolla.webp" alt="Ella Wala"></div><br><p class="place-title">Nildiya Pokuna (Blue Water Pond)</p><p class="place-desc">A hidden blue-water pool deep inside a cave near Ella.</p><span class="place-ext"><svg class="icon"><use href="#i-ext"/></svg>Open in Maps</span></a>
-        <a class="place-card" href="https://maps.app.goo.gl/yw5iAteMqsLb11S49" target="_blank" rel="noopener"><div class="place-photo"><img src="images/Untitled-1.webp" alt="organic"></svg></div><br><p class="place-title">Organic Tea Queen</p><p class="place-desc">Experience from fresh leaf plucking to traditional tea making and tasting.</p><span class="place-ext"><svg class="icon"><use href="#i-ext"/></svg>Open in Maps</span></a>
-        <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=Upper+Diyaluma+Falls+Sri+Lanka" target="_blank" rel="noopener"><div class="place-photo"><img src="images/Upper Diyaluma.webp" alt="Uda Diyaluma"></svg></div><br><p class="place-title">Uda Diyaluma</p><p class="place-desc">Natural rock pools above Diyaluma Falls, with wide valley views.</p><span class="place-ext"><svg class="icon"><use href="#i-ext"/></svg>Open in Maps</span></a>
+        <a class="place-card" href="https://maps.app.goo.gl/yw5iAteMqsLb11S49" target="_blank" rel="noopener"><div class="place-photo"><img src="images/Untitled-1.webp" alt="Organic Tea Queen"></div><br><p class="place-title">Organic Tea Queen</p><p class="place-desc">Experience from fresh leaf plucking to traditional tea making and tasting.</p><span class="place-ext"><svg class="icon"><use href="#i-ext"/></svg>Open in Maps</span></a>
+        <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=Upper+Diyaluma+Falls+Sri+Lanka" target="_blank" rel="noopener"><div class="place-photo"><img src="images/Upper Diyaluma.webp" alt="Uda Diyaluma"></div><br><p class="place-title">Uda Diyaluma</p><p class="place-desc">Natural rock pools above Diyaluma Falls, with wide valley views.</p><span class="place-ext"><svg class="icon"><use href="#i-ext"/></svg>Open in Maps</span></a>
         <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=Lipton%27s+Seat+Sri+Lanka" target="_blank" rel="noopener"><div class="place-photo"><img src="images/Lipton seat.webp" alt="Lipton Seat"></div><br><p class="place-title">Lipton Seat</p><p class="place-desc">Sir Thomas Lipton's viewpoint, with panoramic views over the tea estates.</p><span class="place-ext"><svg class="icon"><use href="#i-ext"/></svg>Open in Maps</span></a>
         <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=Ella+Rock+Sri+Lanka" target="_blank" rel="noopener"><div class="place-photo"><img src="images/Ella Rock.webp" alt="Ella Rock"></div><br><p class="place-title">Ella Rock</p><p class="place-desc">A longer hike to one of the best viewpoints over the Ella gap.</p><span class="place-ext"><svg class="icon"><use href="#i-ext"/></svg>Open in Maps</span></a>
       </div>
@@ -558,8 +626,6 @@ svg{display:block}
         <p><em>Need a car, van or SUV? We can arrange that too.</em></p>
         
         <a class="btn btn-primary wa-link" href="#" data-wa-text="Hi! I'm planning a trip to Ella and would like some help choosing a tour."><svg class="icon"><use href="#i-wa"/></svg>Plan My Day</a>
-        <br>
-        <br>
         <p>Message us on WhatsApp and we'll help you pick the right tour.</p>
         
       </div>
