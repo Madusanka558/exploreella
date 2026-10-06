@@ -12,20 +12,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --pine:#12271D; --pine-2:#0A1811;
-  --mist:#EAEFE7; --paper:#F8FAF4;
-  --brass:#B8863A; --brass-2:#96692A;
-  --moss:#587159; --ink:#16231A; --muted:#5C6659;
-  --line:rgba(18,39,29,.14); --shadow:0 20px 50px rgba(15,30,22,.12);
-  color-scheme: light;
-  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  --pine:#12271D;
+  --pine-2:#0A1811;
+
+  --mist:#101B14;
+  --paper:#16231A;
+
+  --brass:#B8863A;
+  --brass-2:#96692A;
+
+  --moss:#7F9A80;
+
+  --ink:#EAEFE7;
+  --muted:#9BA79C;
+
+  --line:rgba(234,239,231,.14);
+  --shadow:0 20px 50px rgba(0,0,0,.28);
+
+  color-scheme:dark;
+
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
 }
+
 html{
-  color-scheme:light;
+  scroll-behavior:smooth;
+  scroll-padding-top:env(safe-area-inset-top,0px);
+  color-scheme:dark;
 }
 
 body{
-  background:#EAEFE7;
+  margin:0;
+  background:var(--mist);
+  color:var(--ink);
+  font-family:"Manrope",sans-serif;
+  -webkit-font-smoothing:antialiased;
 }
 html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
 *{box-sizing:border-box}
