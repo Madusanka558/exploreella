@@ -331,6 +331,42 @@ svg{display:block}
 .wa-float:hover{transform:translateY(-3px) scale(1.04)}
 .wa-float .icon{width:26px;height:26px;stroke:none;fill:#fff}
 
+  
+/* Developer credit in the footer */
+.developer-credit {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  text-align: center;
+  font-size: 12px;
+  color: #b8c5bd;
+}
+
+.developer-credit a {
+  color: #e8c766;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.developer-credit a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .developer-credit {
+    font-size: 11px;
+    gap: 4px;
+  }
+}
+
+
 @media (min-width:981px){
   .tour-card:nth-child(7):last-child{
     grid-column:2;
@@ -678,7 +714,14 @@ svg{display:block}
 </section>
 </div>
 </main>
-<footer class="footer"><div class="wrap">Explore Ella — local transport &amp; tours around Ella, Sri Lanka.</div></footer>
+<footer class="footer"><div class="wrap">Explore Ella — local transport &amp; tours around Ella, Sri Lanka.</div>
+<div class="developer-credit">
+  <span>Website designed &amp; developed by</span>
+  <a href="mailto:madusankadissanayaka558@gmail.com?subject=Website%20Development%20Inquiry">
+    Let's Build Your Website
+  </a>
+</div>
+</footer>
 <a aria-label="Chat on WhatsApp" class="wa-float wa-link" data-wa-text="Hi! I'm looking at your Explore Ella page and would like to ask about a tour." href="#"><svg class="icon"><use href="#i-wa"></use></svg></a>
 <script>
 // Placeholder number — replace with the real WhatsApp number (country code first, no + or leading 0).
